@@ -34,7 +34,7 @@ const Lab5 = (app) => {
     const sum = parseInt(a) - parseInt(b);
     res.send(sum.toString());
   });
-  app.get("/a5/mulitply/:a/:b", (req, res) => {
+  app.get("/a5/multiply/:a/:b", (req, res) => {
     const { a, b } = req.params;
     const sum = parseInt(a) * parseInt(b);
     res.send(sum.toString());
