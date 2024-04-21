@@ -1,5 +1,6 @@
 import * as dao from "./dao.js";
 import userSchema from "./schema.js";
+let globalCurrentUser = null;
 export default function UserRoutes(app) {
   const createUser = async (req, res) => {
     const user = await dao.createUser(req.body);
@@ -38,8 +39,11 @@ export default function UserRoutes(app) {
         { message: "Username already taken" });
       return;
     }
+    
     const currentUser = await dao.createUser(req.body);
+    
     req.session["currentUser"] = currentUser;
+    globalCurrentUser=currentUser;
     res.json(currentUser);
   };
   const signin = async (req, res) => {
@@ -49,6 +53,7 @@ export default function UserRoutes(app) {
     console.log("routes.js: currentUser:",currentUser);
     if (currentUser) {
       req.session["currentUser"] = currentUser;
+      globalCurrentUser=currentUser;
       res.json(currentUser);
     } else {
       res.sendStatus(401);
@@ -61,6 +66,7 @@ export default function UserRoutes(app) {
   };
   const profile = (req, res) => {
     const currentUser = req.session["currentUser"];
+    currentUser=globalCurrentUser;
     if (!req.session.currentUser) {
       res.sendStatus(401);
       return;
