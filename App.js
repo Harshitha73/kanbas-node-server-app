@@ -2,6 +2,7 @@ import Hello from "./Hello.js";
 import Lab5 from "./Lab5.js";
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
+import QuestionRoutes from "./Kanbas/questions/routes.js";
 import AssignmentRoutes from "./Kanbas/Assignments/routes.js";
 import express from 'express';
 import cors from "cors";
@@ -40,6 +41,7 @@ app.use(
 ModuleRoutes(app);
 CourseRoutes(app);
 AssignmentRoutes(app);
+QuestionRoutes(app);
 Lab5(app);
 Hello(app);
 UserRoutes(app);
