@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 const questionSchema = new mongoose.Schema({
-  _id: String,
+  // _id: {type: String, default: mongoose.Types.ObjectId, unique: true},
   type: String,
+  title: String,
   quiz: String,
   pts: Number,
   question: String,
-  option: {},
+  options: {
+    type: Map,
+    of: String
+  },
   answer: String
 },
   { collection: "questions" });
