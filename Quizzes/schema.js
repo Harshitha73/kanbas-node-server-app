@@ -22,7 +22,7 @@ const quizSchema = new mongoose.Schema({
   timeLimit: { type: Number, default: 20 },
   timeLimitCheckbox: { type: Boolean, default: true },
   multipleAttempts: { type: Boolean, default: false },
-  showCorrectAnswers: { type: String },
+  showCorrectAnswers: { type: Boolean, default: false},
   accessCode: { type: String, default: "" },
   oneQuestionAtATime: { type: Boolean, default: true },
   webcamRequired: { type: Boolean, default: false },
