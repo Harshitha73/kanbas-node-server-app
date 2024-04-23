@@ -11,7 +11,7 @@ import UserRoutes from "./Users/routes.js";
 import "dotenv/config";
 import session from "express-session";
 import QuizRoutes from "./Quizzes/routes.js";
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas_project'
 mongoose.connect(CONNECTION_STRING);
 
 
