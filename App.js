@@ -2,6 +2,7 @@ import Hello from "./Hello.js";
 import Lab5 from "./Lab5.js";
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
+import QuestionRoutes from "./Kanbas/questions/routes.js";
 import AssignmentRoutes from "./Kanbas/Assignments/routes.js";
 import express from 'express';
 import cors from "cors";
@@ -9,11 +10,12 @@ import mongoose from "mongoose";
 import UserRoutes from "./Users/routes.js";
 import "dotenv/config";
 import session from "express-session";
+import QuizRoutes from "./Quizzes/routes.js";
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
 mongoose.connect(CONNECTION_STRING);
 
 
-// mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
+//mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 const app = express();
 
 app.use(express.json());
@@ -40,6 +42,8 @@ app.use(
 ModuleRoutes(app);
 CourseRoutes(app);
 AssignmentRoutes(app);
+QuizRoutes(app);
+QuestionRoutes(app);
 Lab5(app);
 Hello(app);
 UserRoutes(app);
